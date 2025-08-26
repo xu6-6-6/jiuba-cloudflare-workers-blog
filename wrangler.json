@@ -1,0 +1,17 @@
+{
+  "name": "cf-blog",
+  "compatibility_date": "2025-08-26", 
+  "main": "index.js",
+  "kv_namespaces": [
+    {
+      "binding": "CFBLOG",
+      "id": "fa823fd43c1a40949743f11ad1ee101e"
+    }
+  ],
+  "routes": [
+    {
+      "pattern": "kv.jiuba.195066.xyz/*",
+      "zone_name": "195066.xyz"
+    }
+  ]
+}
