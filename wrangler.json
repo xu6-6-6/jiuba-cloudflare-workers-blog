@@ -1,5 +1,5 @@
 {
-  "name": "cf-blog",
+  "name": "blog",
   "compatibility_date": "2025-08-26", 
   "main": "index.js",
   "kv_namespaces": [
