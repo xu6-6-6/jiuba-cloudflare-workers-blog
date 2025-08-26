@@ -6,7 +6,7 @@ const OPT = {
     "siteName" : "我们的九八班",//博客名称
     "siteDescription":"A Blog Powered By Cloudflare Workers and KV",//博客描述
     "keyWords":"cloudflare,KV,workers,blog",//关键字
-    "cacheZoneId":"cc868e8edce4027ad4a735741111111",//清理缓存用 cf区域 ID
+    "cacheZoneId":"4a050010bf8b8e993b8816422a016a59",//清理缓存用 cf区域 ID
     "cacheToken":"LNxRWH-MPMIGnp8qhyT8FUsjDRN6tdOnmaaaaaaa",//清理缓存用 cf API token
 	
     "pageSize" : 5,//每页文章数
