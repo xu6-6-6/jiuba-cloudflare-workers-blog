@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ &articleSingle.title }} - {{ &OPT.siteName }}</title>
+  <meta name="description" content="{{ &articleSingle.contentText }}">
+  <meta name="keywords" content="{{ &articleSingle.category }},{{ &articleSingle.tags }}">
+  <link rel="stylesheet" href="{{ &OPT.themeURL }}/style.css">
+  {{ &OPT.codeBeforHead }}
+</head>
+<body>
+  {{ &OPT.codeBeforBody }}
+
+  <header>
+    <h1><a href="/">{{ &OPT.siteName }}</a></h1>
+    <p>{{ &OPT.siteDescription }}</p>
+  </header>
+
+  <main>
+    <article>
+      <h2>{{ &articleSingle.title }}</h2>
+      {{ #articleSingle.img }}<img src="{{ &articleSingle.img }}" alt="{{ &articleSingle.title }} 封面">{{ /articleSingle.img }}
+      <p class="meta">发布于 {{ &articleSingle.createDate10 }}</p>
+      <section class="content">
+        {{{ &articleSingle.contentHtml }}}
+      </section>
+      <p class="tags">
+        分类：
+        {{ #articleSingle.category }}
+        <a href="/category/{{&.}}">{{&.}}</a>
+        {{ /articleSingle.category }}
+        <br>
+        标签：
+        {{ #articleSingle.tags }}
+        <a href="/tags/{{&.}}">{{&.}}</a>
+        {{ /articleSingle.tags }}
+      </p>
+    </article>
+
+    <nav class="article-nav">
+      {{ #articleNewer }}
+      <a href="{{ &url }}" class="newer">上一篇：{{ &title }}</a>
+      {{ /articleNewer }}
+      {{ #articleOlder }}
+      <a href="{{ &url }}" class="older">下一篇：{{ &title }}</a>
+      {{ /articleOlder }}
+    </nav>
+
+    <section class="comments">
+      {{ &OPT.commentCode }}
+    </section>
+  </main>
+
+  <aside>
+    <h3>推荐阅读</h3>
+    <ul>
+      {{ #widgetRecentlyList }}
+      <li><a href="{{ &url }}">{{ &title }}</a></li>
+      {{ /widgetRecentlyList }}
+    </ul>
+  </aside>
+
+  <footer>
+    <p>{{ &OPT.copyRight }}</p>
+  </footer>
+</body>
+</html>
