@@ -1,1 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ &title }} - {{ &OPT.siteName }}</title>
+  <meta name="description" content="{{ &OPT.siteDescription }}">
+  <meta name="keywords" content="{{ &keywords }},{{ &OPT.keyWords }}">
+  <link rel="stylesheet" href="{{ &OPT.themeURL }}/style.css">
+  {{ &OPT.codeBeforHead }}
+</head>
+<body>
+  {{ &OPT.codeBeforBody }}
 
+  <header>
+    <h1><a href="/">{{ &OPT.siteName }}</a></h1>
+    <p>{{ &OPT.siteDescription }}</p>
+    <nav>
+      <ul>
+        {{ #widgetMenuList }}
+        <li><a href="{{ &url }}">{{ &title }}</a></li>
+        {{ /widgetMenuList }}
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    {{ #articleList.length }}
+    <section class="articles">
+      {{ #articleList }}
+      <article>
+        <h2><a href="/article/{{ &id }}/{{ &link }}.html">{{ &title }}</a></h2>
+        {{ #img }}<img src="{{ &img }}" alt="{{ &title }} 封面">{{ /img }}
+        <p class="meta">发表于 {{ &createDate10 }}</p>
+        <p>{{ &contentText }}</p>
+      </article>
+      {{ /articleList }}
+    </section>
+    {{ /articleList.length }}
+    
+    {{^articleList.length}}
+    <p>这里很安静，像是深夜的空白纸。没有文章呢～</p>
+    {{/articleList.length}}
+
+    <nav class="pagination">
+      {{ #pageNewer }}<a href="{{ &url }}" class="newer">← {{ &title }}</a>{{ /pageNewer }}
+      {{ #pageOlder }}<a href="{{ &url }}" class="older">{{ &title }} →</a>{{ /pageOlder }}
+    </nav>
+  </main>
+
+  <aside>
+    <section>
+      <h3>分类</h3>
+      <ul>
+        {{ #widgetCategoryList }}
+        <li><a href="{{ &url }}">{{ &title }}</a></li>
+        {{ /widgetCategoryList }}
+      </ul>
+    </section>
+    <section>
+      <h3>最近发布</h3>
+      <ul>
+        {{ #widgetRecentlyList }}
+        <li>
+          {{ #img }}<img src="{{ &img }}" alt="{{ &title }}"/>{{ /img }}
+          <a href="{{ &url }}">{{ &title }}</a>
+        </li>
+        {{ /widgetRecentlyList }}
+      </ul>
+    </section>
+    <section>
+      <h3>标签</h3>
+      <ul>
+        {{ #widgetTagsList }}
+        <li><a href="{{ &url }}">{{ &title }}</a></li>
+        {{ /widgetTagsList }}
+      </ul>
+    </section>
+    <section>
+      <h3>友链</h3>
+      <ul>
+        {{ #widgetLinkList }}
+        <li><a href="{{ &url }}">{{ &title }}</a></li>
+        {{ /widgetLinkList }}
+      </ul>
+    </section>
+  </aside>
+
+  <footer>
+    <p>{{ &OPT.copyRight }}</p>
+    <p>Powered by Mustache & {{ &OPT.siteName }}</p>
+  </footer>
+</body>
+</html>
